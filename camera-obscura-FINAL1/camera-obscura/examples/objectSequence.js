@@ -29,7 +29,7 @@ export function objectSequence() {
     const image = getImageFromVideo(video);
 
     // On récupère la réponse de l'API
-    const response = await fetch(baseUrl + "gpt", {
+    const response = await fetch(baseUrl, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -48,7 +48,7 @@ export function objectSequence() {
       }),
     });
 
-    const apiResponse = await response.json();
+    let apiResponse = await response.json();
     console.log(apiResponse);
 
     // On ajoute l'objet à la liste
@@ -63,7 +63,7 @@ export function objectSequence() {
       // You are an assistant that have to combine two items. I give you a list of items separated by a comma and you have to propose an item that combine them. Answer only with the emoji. Nothing else.`;
 
       // On envoie la liste des objets à l'API GPT
-      const response = await fetch(baseUrl + "gpt", {
+      const response = await fetch(baseUrl, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
