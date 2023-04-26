@@ -3,8 +3,9 @@ import { sleep, typeWriter } from "../utils";
 import { getImageFromVideo } from "../utils";
 const objects = [];
 
+
 export function emptyExample() {
-  const button1 = document.querySelector("#button1");
+  const button1 = document.querySelector("#background1");
   const button2 = document.querySelector("#button2");
   const button3 = document.querySelector("#button3");
 
@@ -14,6 +15,7 @@ export function emptyExample() {
 
   const video = document.querySelector("video");
   const target = document.querySelector("#target");
+  const description = document.querySelector("#description");
 
   const background1 = document.querySelector("#background1");
 
@@ -33,12 +35,11 @@ export function emptyExample() {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          //image: image,
-          visualQuestion:
-            "Make a price of the objects on the picture you see with the argument of materials production creativity.",
+          image: image,
+          // visualQuestion:
+          //   "Make a price of the objects on the picture you see with the argument of materials production creativity.",
           systemPrompt:
-            "You are an assistant that create a short poem from the color of the eyes. Please do not put the " /
-            " in the text",
+          `You are an art critic that creates a short description summarized in only one sentence about what you see considering factors like material of the object, originality, placement and other factors an art critic would consider in evaluating any object or work of art. You don’t need to consider the artist. You mustn’t mention what’s actually visible on the picture. Just evaluate what you see the best you can and describe its higher meaning in interpreting its value as a work of art.`
         }),
       }
     );
@@ -46,30 +47,45 @@ export function emptyExample() {
     const apiResponse = await response.json();
     console.log(apiResponse);
 
-    if (apiResponse) {
+    // if (apiResponse) {
+    //   video.style.filter = "brightness(70%)";
+    //   target.innerHTML = "<p>" + apiResponse.output + "</p>";
+    //   //objects.push(apiResponse.prediction.output);
+    // }
+
+
+    const response2 = await fetch(
+      "https://cameraobscuraapi-production.up.railway.app/gpt",
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          image: image,
+          // visualQuestion:
+          //   "Make a price of the objects on the picture you see with the argument of materials production creativity.",
+          systemPrompt:
+          `Based on your short description of the higher value of the object and its interpretation as a work of art being photographed you are going to define a title for the object. Take in consideration that you are not allowed to mention what is actually visible on the picture but evaluate the concept of the work of art as a base for the title. The title should be max. 3 words long.`        }),
+      }
+    );
+
+    const apiResponse2 = await response2.json();
+    console.log(apiResponse2);
+
+    if (apiResponse2) {
       video.style.filter = "brightness(70%)";
-      target.innerHTML = "<p>" + apiResponse.prediction.output + "</p>";
-      objects.push(apiResponse.prediction.output);
+      video.classList.add("imageMove");
+      target.innerHTML ="<p><h4>" + apiResponse2.output + "</h4>" + apiResponse.output + "</p>";
+      //description.classList.add("textMove");
+
+      //objects.push(apiResponse.prediction.output);
+
+
     }
 
     button2.classList.add("hidden", "bg-white");
     close.classList.remove("hidden");
     button3.classList.remove("hidden");
 
-    // if (objects.length === 2) {
-    //   const response = await fetch(
-    //     "https://cameraobscuraapi-production.up.railway.app/gpt",
-    //     {
-    //       method: "POST",
-    //       headers: { "Content-Type": "application/json" },
-    //       body: JSON.stringify({
-    //         image: image,
-    //         systemPrompt: "",
-    //         content: objects.join(","),
-    //       }),
-    //     }
-    //   );
-    // }
   };
   button1.addEventListener("click", () => {
     title.classList.add("hidden");
@@ -88,6 +104,6 @@ export function emptyExample() {
 
     video.style.filter = "brightness(100%)";
     video.play();
-    target.innerHTML = "";
+   target.innerHTML = "";
   });
 }
