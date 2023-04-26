@@ -47,8 +47,25 @@ body {
 .rectangle {
   height: 100vh;
   width: 100vw;
-  background-color: #181010;
+
+  background: rgba(0, 0, 0, 0.8);
+
+  filter: blur(4px);
+  -o-filter: blur(4px);
+  -ms-filter: blur(4px);
+  -moz-filter: blur(4px);
+  -webkit-filter: blur(4px);
 }
+
+
+.imageMove {
+    transform: translateY(-50%);
+  }
+
+  .textMove {
+    transform: translateY(25%);
+  }
+
 
 #TITRE {
   position: absolute;
@@ -57,7 +74,23 @@ body {
   top: 40%;
   left: 25%;
   right: 25%;
-  color: rgba(255, 255, 255, 0.87);
+  color: rgba(255, 255, 255);
+  z-index: calc(1);
+}
+
+#target{
+  position: absolute;
+  font-size: 10px;
+  text-align: center;
+  top: 50%;
+  left: 25%;
+  right: 25%;
+  color: rgba(255, 255, 255);
+  z-index: calc(1);
+  transform: translateY(25%);
+
+  
+
 }
 
 video {

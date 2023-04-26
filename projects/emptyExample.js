@@ -5,7 +5,7 @@ const objects = [];
 
 
 export function emptyExample() {
-  const button1 = document.querySelector("#button1");
+  const button1 = document.querySelector("#background1");
   const button2 = document.querySelector("#button2");
   const button3 = document.querySelector("#button3");
 
@@ -15,6 +15,7 @@ export function emptyExample() {
 
   const video = document.querySelector("video");
   const target = document.querySelector("#target");
+  const description = document.querySelector("#description");
 
   const background1 = document.querySelector("#background1");
 
@@ -46,10 +47,39 @@ export function emptyExample() {
     const apiResponse = await response.json();
     console.log(apiResponse);
 
-    if (apiResponse) {
+    // if (apiResponse) {
+    //   video.style.filter = "brightness(70%)";
+    //   target.innerHTML = "<p>" + apiResponse.output + "</p>";
+    //   //objects.push(apiResponse.prediction.output);
+    // }
+
+
+    const response2 = await fetch(
+      "https://cameraobscuraapi-production.up.railway.app/gpt",
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          image: image,
+          // visualQuestion:
+          //   "Make a price of the objects on the picture you see with the argument of materials production creativity.",
+          systemPrompt:
+          `Based on your short description of the higher value of the object and its interpretation as a work of art being photographed you are going to define a title for the object. Take in consideration that you are not allowed to mention what is actually visible on the picture but evaluate the concept of the work of art as a base for the title. The title should be max. 3 words long.`        }),
+      }
+    );
+
+    const apiResponse2 = await response2.json();
+    console.log(apiResponse2);
+
+    if (apiResponse2) {
       video.style.filter = "brightness(70%)";
-      target.innerHTML = "<p>" + apiResponse.output + "</p>";
+      video.classList.add("imageMove");
+      target.innerHTML ="<p><h4>" + apiResponse2.output + "</h4>" + apiResponse.output + "</p>";
+      //description.classList.add("textMove");
+
       //objects.push(apiResponse.prediction.output);
+
+
     }
 
     button2.classList.add("hidden", "bg-white");
@@ -74,6 +104,6 @@ export function emptyExample() {
 
     video.style.filter = "brightness(100%)";
     video.play();
-   // target.innerHTML = "";
+   target.innerHTML = "";
   });
 }
