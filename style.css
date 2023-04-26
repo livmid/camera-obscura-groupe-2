@@ -57,15 +57,27 @@ body {
   -webkit-filter: blur(4px);
 }
 
+/* Bouton bord arrondi*/
+#evaluate {
+  border-radius: 100px;
+  background: #2e3129;
+  width: 200px;
+  height: 50px;
+  right: 2%;
+  bottom: 2%;
+  position: absolute;
+  font-size: 1.5em;
+  text-align: center;
+  color: rgb(232, 142, 38);
+}
 
 .imageMove {
-    transform: translateY(-50%);
-  }
+  transform: translateY(-50%);
+}
 
-  .textMove {
-    transform: translateY(25%);
-  }
-
+.textMove {
+  transform: translateY(25%);
+}
 
 #TITRE {
   position: absolute;
@@ -78,7 +90,7 @@ body {
   z-index: calc(1);
 }
 
-#target{
+#target {
   position: absolute;
   font-size: 10px;
   text-align: center;
@@ -88,9 +100,6 @@ body {
   color: rgba(255, 255, 255);
   z-index: calc(1);
   transform: translateY(25%);
-
-  
-
 }
 
 video {
