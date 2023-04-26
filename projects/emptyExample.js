@@ -96,6 +96,9 @@ export function emptyExample() {
     button2.classList.remove("hidden");
     button2.disabled = false;
     button3.classList.add("hidden");
+    video.classList.remove("imageMove");
+
+
 
     video.style.filter = "brightness(100%)";
     video.play();
