@@ -60,7 +60,7 @@ export function emptyExample() {
           image: image,
           // visualQuestion:
           //   "Make a price of the objects on the picture you see with the argument of materials production creativity.",
-          systemPrompt: `Based on your short description of the higher value of the object and its interpretation as a work of art being photographed you are going to define a title for the object. Take in consideration that you are not allowed to mention what is actually visible on the picture but evaluate the concept of the work of art as a base for the title. The title should be max. 3 words long.`,
+          systemPrompt: `Based on your short description of the object on the image with the conditions I mentioned, you are going to create a three words title of the “work of art” as if you would want to sell it and therefore set a value to any object. Take in consideration that you are allowed to mention what is actually visible on the picture but you should also evaluate the concept of the work of art as a base for the title. Don’t make the title too abstract but also be careful to not only stating the obvious.`,
         }),
       }
     );
