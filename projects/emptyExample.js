@@ -123,7 +123,7 @@ export function emptyExample() {
           outputPrompt.State +
           "<br/> <br/>";
 
-        valueArt.innerHTML = "Value: " + outputPrompt.Value;
+        valueArt.innerHTML = outputPrompt.Value;
       } else {
         fetchResponse();
       }
