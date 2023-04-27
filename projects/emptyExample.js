@@ -64,7 +64,7 @@ export function emptyExample() {
                       "State": "placeholder",
                       "Technique": "placeholder",
                       "Date": "placeholder",
-                      "Value": "placeholder",},`,
+                      "Value": "placeholder"},`,
         }),
       }
     );
@@ -108,12 +108,12 @@ export function emptyExample() {
           outputPrompt = JSON.parse(outputPrompt);
         }
         console.log(outputPrompt);
-        titleArt.innerHTML = outputPrompt.Title + "<br/><br/>";
+        titleArt.innerHTML = outputPrompt.Title + "<br/>";
         descriptArt.innerHTML = outputPrompt.Description + "<br/> <br/>";
 
         detailArt.innerHTML =
           outputPrompt.Materials +
-          "<br/>" +
+          ", " +
           outputPrompt.Size +
           "<br/>" +
           "Technique: " +

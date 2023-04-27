@@ -87,15 +87,26 @@ body {
 
 #value-artwork {
   font-size: 2em;
+  padding-right: 5px;
+  text-align: right;
+  font-weight: bold;
+  margin-top: 10%;
+}
+
+#detail-artwork {
+  font-size: 0.7em;
+  line-height: 1.2em;
+  font-weight: lighter;
+  padding-right: 150px;
 }
 
 /* Bouton bord arrondi*/
 #evaluate {
   border-radius: 100px;
   background: #000000;
-  width: 200px;
+  width: 150px;
   height: 50px;
-  right: 25%;
+  right: 3%;
   bottom: 25%;
   position: absolute;
   font-size: 1.5em;
@@ -106,33 +117,35 @@ body {
   justify-content: center;
 }
 
+
+
 #TITRE1 {
   position: absolute;
-  line-height: 1.23em;
+  line-height: 1.17em;
 
-  font-size: 2.78em;
+  font-size: 2.6em;
   text-align: left;
   top: 5%;
   left: 10%;
   right: 25%;
   color: rgba(255, 255, 255);
   z-index: calc(2);
+  font-weight: bold;
 
-  font-weight: bolder;
 
 }
 
 #TITRE2 {
   position: absolute;
 
-  font-size: 1em;
+  font-size: 1.2em;
   text-align: center;
   bottom: 10%;
   left: 25%;
   right: 25%;
   color: rgba(255, 255, 255);
   z-index: calc(2);
-  font-weight: bold;
+  font-weight: medium;
 
 }
 /* 
@@ -148,8 +161,19 @@ body {
 } */
 
 #title-artwork {
-  font-size: 2em;
+  font-size: 3em;
   line-height: 1em;
+  font-weight: medium;
+  padding-bottom: 15px;
+}
+
+#description-artwork {
+  font-size: 1.3em;
+  line-height: 1em;
+  font-weight: normal;
+  padding-right: 10px;
+  padding-bottom: 50px;
+
 }
 
 #target {
