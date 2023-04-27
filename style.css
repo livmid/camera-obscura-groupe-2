@@ -10,16 +10,37 @@
 } */
 
 @font-face {
-  font-family: "telegraf";
-  font-style: regular;
-  src: local("telegraf"),
-    url(/assets/styles/fonts/Telegraf-Regular.otf) format("otf");
+  font-family: "CreatoDisplay";
+  src: url(/assets/styles/fonts/CreatoDisplay-Regular.otf) format("otf");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "CreatoDisplay";
+  src: url(/assets/styles/fonts/CreatoDisplay-Bold.otf) format("otf");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "CreatoDisplay";
+  src: url(/assets/styles/fonts/CreatoDisplay-Medium.otf) format("otf");
+  font-weight: medium;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "CreatoDisplay";
+  src: url(/assets/styles/fonts/CreatoDisplay-ExtraBold.otf) format("otf");
+  font-weight: bolder;
+  font-style: normal;
 }
 
 :root {
-  font-family: telegraf, Helvetica, Arial, sans-serif;
+  font-family: CreatoDisplay, Helvetica, Arial, sans-serif;
   line-height: 1.5;
-  font-weight: 400;
+  font-weight: normal;
 
   color: rgba(255, 255, 255, 0.87);
 
@@ -96,6 +117,9 @@ body {
   right: 25%;
   color: rgba(255, 255, 255);
   z-index: calc(2);
+
+  font-weight: bolder;
+
 }
 
 #TITRE2 {
@@ -108,6 +132,8 @@ body {
   right: 25%;
   color: rgba(255, 255, 255);
   z-index: calc(2);
+  font-weight: bold;
+
 }
 /* 
 #TITRE {
