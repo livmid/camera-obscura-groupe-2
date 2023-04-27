@@ -10,7 +10,7 @@ export function emptyExample() {
 
   const title = document.querySelector("#TITRE");
   const close = document.querySelector("#close");
-  const share = document.querySelector("#btn-share");
+  // const share = document.querySelector("#btn-share");
 
   const video = document.querySelector("video");
   const video_container = document.querySelector("#video-container");
@@ -22,6 +22,9 @@ export function emptyExample() {
   const descriptArt = document.querySelector("#description-artwork");
   const detailArt = document.querySelector("#detail-artwork");
   const valueArt = document.querySelector("#value-artwork");
+  const share = document.querySelector("#share");
+  const opacity = document.querySelector(".opacity-scroll");
+  const fondNoir = document.querySelector("#fondNoir");
 
   const background1 = document.querySelector("#background1");
   let image;
@@ -31,6 +34,7 @@ export function emptyExample() {
     button2.classList.remove("bg-white");
     button2.disabled = true;
     image = getImageFromVideo(video);
+
     fetchResponse();
   };
 
@@ -89,7 +93,7 @@ export function emptyExample() {
 
     if (apiresponseDescription) {
       document.body.style.overflow = "scroll";
-      video.style.filter = "brightness(70%)";
+      // video.style.filter = "brightness(70%)";
       video_container.classList.add("imageMove");
       // target.innerHTML =
       //   "<p><h4>" + apiResponse2.output + "</h4>" + apiResponse.output + "</p>";
@@ -109,11 +113,14 @@ export function emptyExample() {
         }
         console.log(outputPrompt);
         titleArt.innerHTML = outputPrompt.Title + "<br/>";
+        // await sleep(1000);
+        //await typeWriter(outputPrompt.Title, 200, titleArt);
         descriptArt.innerHTML = outputPrompt.Description + "<br/> <br/>";
 
         detailArt.innerHTML =
+          "Materials: " +
           outputPrompt.Materials +
-          ", " +
+          "<br/> Size: " +
           outputPrompt.Size +
           "<br/>" +
           "Technique: " +
@@ -124,6 +131,7 @@ export function emptyExample() {
           "<br/> <br/>";
 
         valueArt.innerHTML = outputPrompt.Value;
+        //await typeWriter(outputPrompt.Value, 100, valueArt);
       } else {
         fetchResponse();
       }
@@ -137,6 +145,9 @@ export function emptyExample() {
     button2.classList.add("hidden", "bg-white");
     close.classList.remove("hidden");
     button3.classList.remove("hidden");
+    description.classList.remove("hidden");
+
+    opacity.classList.remove("hidden");
   }
   button1.addEventListener("click", () => {
     //title.classList.add("hidden");
@@ -155,6 +166,10 @@ export function emptyExample() {
     button3.classList.add("hidden");
     video.classList.remove("imageMove");
 
+    description.classList.add("hidden");
+    video_container.classList.remove("imagePrint");
+    video_container.classList.remove("imageMove");
+    opacity.classList.add("hidden");
     video.style.filter = "brightness(100%)";
     video.play();
     target.innerHTML = "";
@@ -163,5 +178,14 @@ export function emptyExample() {
   button3.addEventListener("click", () => {
     button3.classList.add("hidden");
     valueArt.classList.remove("hidden");
+    video_container.classList.add("imagePrint");
+    video_container.classList.add("imageMove");
+    share.classList.remove("hidden");
+  });
+
+  share.addEventListener("click", () => {
+    share.classList.add("hidden");
+    fondNoir.classList.remove("hidden");
+    opacity.classList.add("hidden");
   });
 }
