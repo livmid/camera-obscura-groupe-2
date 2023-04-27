@@ -13,6 +13,8 @@ export function emptyExample() {
   const share = document.querySelector("#btn-share");
 
   const video = document.querySelector("video");
+  const video_container = document.querySelector("#video-container");
+
   const target = document.querySelector("#target");
   const description = document.querySelector("#description");
 
@@ -83,7 +85,7 @@ export function emptyExample() {
     if (apiresponseDescription) {
       document.body.style.overflow = "scroll";
       video.style.filter = "brightness(70%)";
-      video.classList.add("imageMove");
+      video_container.classList.add("imageMove");
       // target.innerHTML =
       //   "<p><h4>" + apiResponse2.output + "</h4>" + apiResponse.output + "</p>";
       // const titre1 = apiResponseTitle.output.replaceAll('"', "");

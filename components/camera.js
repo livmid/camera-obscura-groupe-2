@@ -27,7 +27,8 @@ export function camera() {
       video.srcObject = stream;
     });
 
-  document.body.prepend(video);
+  const video_container = document.querySelector("#video-container");
+  video_container.prepend(video);
 
   video.addEventListener("click", function () {
     if (!video.paused) {
