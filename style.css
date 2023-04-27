@@ -64,18 +64,25 @@ body {
   -webkit-filter: blur(4px);
 }
 
+#value-artwork {
+  font-size: 2em;
+}
+
 /* Bouton bord arrondi*/
 #evaluate {
   border-radius: 100px;
-  background: #2e3129;
+  background: #000000;
   width: 200px;
   height: 50px;
-  right: 2%;
-  bottom: 2%;
+  right: 25%;
+  bottom: 25%;
   position: absolute;
   font-size: 1.5em;
   text-align: center;
-  color: rgb(232, 142, 38);
+  color: rgb(255, 255, 255);
+  border: 5px solid;
+  /* display: flex; */
+  justify-content: center;
 }
 
 #TITRE1 {
@@ -115,7 +122,7 @@ body {
 } */
 
 #title-artwork {
-  font-size: 1.7em;
+  font-size: 2em;
   line-height: 1em;
 }
 
