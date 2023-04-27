@@ -2,20 +2,26 @@
 @tailwind components;
 @tailwind utilities;
 
-@font-face {
+/* @font-face {
   font-family: "sohne";
   font-style: normal;
   src: local("sohne"),
     url(/assets/styles/fonts/Sohne-Kraftig.woff) format("woff");
+} */
+
+@font-face {
+  font-family: "telegraf";
+  font-style: regular;
+  src: local("telegraf"),
+    url(/assets/styles/fonts/Telegraf-Regular.otf) format("otf");
 }
 
 :root {
-  font-family: sohne, Helvetica, Arial, sans-serif;
+  font-family: telegraf, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
   color: rgba(255, 255, 255, 0.87);
-  background-color: #ff0000;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -39,13 +45,16 @@ body {
   padding: 0;
   margin: 0;
   width: 100vw;
-  min-height: 100vh;
+  /* height: 100vh;
+  overflow: hidden; */
 }
 
 .rectangle {
   height: 100vh;
   width: 100vw;
-
+  position: fixed;
+  top: 0;
+  z-index: 1;
   background: rgba(0, 0, 0, 0.8);
 
   filter: blur(4px);
@@ -55,23 +64,6 @@ body {
   -webkit-filter: blur(4px);
 }
 
-<<<<<<< Updated upstream
-/* Bouton bord arrondi*/
-#evaluate {
-  border-radius: 100px;
-  background: #2e3129;
-  width: 200px;
-  height: 50px;
-  right: 2%;
-  bottom: 2%;
-  position: absolute;
-  font-size: 1.5em;
-  text-align: center;
-  color: rgb(232, 142, 38);
-}
-
-=======
->>>>>>> Stashed changes
 .imageMove {
   transform: translateY(-50%);
 }
@@ -80,8 +72,33 @@ body {
   transform: translateY(25%);
 }
 
-#TITRE {
+#TITRE1 {
   position: absolute;
+  line-height: 1.2em;
+
+  font-size: 3em;
+  text-align: left;
+  top: 5%;
+  left: 10%;
+  right: 25%;
+  color: rgba(255, 255, 255);
+  z-index: calc(2);
+}
+
+#TITRE2 {
+  position: absolute;
+
+  font-size: 0.9em;
+  text-align: center;
+  bottom: 20%;
+  left: 25%;
+  right: 25%;
+  color: rgba(255, 255, 255);
+  z-index: calc(2);
+}
+/* 
+#TITRE {
+  position: relative;
   font-size: 1.5em;
   text-align: center;
   top: 40%;
@@ -89,34 +106,27 @@ body {
   right: 25%;
   color: rgba(255, 255, 255);
   z-index: calc(1);
+} */
+
+#title-artwork {
+  font-size: 1.7em;
+  line-height: 1em;
 }
 
 #target {
-<<<<<<< Updated upstream
-  position: absolute;
-  font-size: 10px;
-  text-align: center;
-  top: 50%;
-  left: 25%;
-  right: 25%;
-  color: rgba(255, 255, 255);
-  z-index: calc(1);
-  transform: translateY(25%);
-=======
   position: relative;
   font-size: 1em;
   text-align: left;
-
+  margin-top: 100vh;
+  margin-top: 100svh;
   min-width: 100vw;
   background-color: white;
-
   padding: 1rem;
   /* left: 25%;
   right: 25%; */
   color: rgb(0, 0, 0);
   z-index: calc(1);
   /* transform: translateY(25%); */
->>>>>>> Stashed changes
 }
 
 video {
@@ -125,6 +135,7 @@ video {
   object-fit: cover;
   z-index: 0;
   position: fixed;
+  top: 0;
   -webkit-transition: all 1s ease;
   transition: all 1s ease;
 }
