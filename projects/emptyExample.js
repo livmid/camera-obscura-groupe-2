@@ -193,10 +193,9 @@ export function emptyExample() {
   close.addEventListener("click", () => {
     close.classList.add("hidden");
     button2.classList.remove("hidden");
-    button2.disabled = false;
     button3.classList.add("hidden");
     video.classList.remove("imageMove");
-
+    button2.disabled = false;
     description.classList.add("hidden");
     video_container.classList.remove("imagePrint");
     video_container.classList.remove("imageMove");
