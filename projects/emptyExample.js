@@ -33,7 +33,6 @@ export function emptyExample() {
 
   const copyToClipboardAsync = (str) => {
     console.log("copyToClipboardAsync");
-    close.classList.remove("hidden");
 
     if (navigator && navigator.clipboard && navigator.clipboard.writeText)
       return navigator.clipboard.writeText(str);
@@ -196,6 +195,7 @@ export function emptyExample() {
   button2.addEventListener("click", () => takePhoto());
 
   close.addEventListener("click", () => {
+    share.innerHTML = "Share";
     close.classList.add("hidden");
     button2.classList.remove("hidden");
     button3.classList.add("hidden");
@@ -225,13 +225,13 @@ export function emptyExample() {
   });
 
   share.addEventListener("click", () => {
-    share.classList.add("hidden");
-    close.classList.add("hidden");
+    //share.classList.add("hidden");
+
     // fondNoir.classList.remove("hidden");
-    opacity.classList.add("hidden");
-    background1.classList.remove("hidden");
-    TITRE1.innerHTML = " ";
-    TITRE2.innerHTML = "copied to clipboard";
+    //opacity.classList.add("hidden");
+    //background1.classList.remove("hidden");
+    //TITRE1.innerHTML = " ";
+    share.innerText = "Copied to clipboard";
     imageCopy.classList.remove("hidden");
 
     copyToClipboardAsync(
