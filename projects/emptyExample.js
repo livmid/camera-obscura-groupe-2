@@ -32,6 +32,9 @@ export function emptyExample() {
   let image;
 
   const copyToClipboardAsync = (str) => {
+    console.log("copyToClipboardAsync");
+    close.classList.remove("hidden");
+
     if (navigator && navigator.clipboard && navigator.clipboard.writeText)
       return navigator.clipboard.writeText(str);
     return Promise.reject("The Clipboard API is not available.");
@@ -145,6 +148,7 @@ export function emptyExample() {
         valueArt.innerHTML = outputPrompt.Value;
         //await typeWriter(outputPrompt.Value, 100, valueArt);
 
+        /*
         copyToClipboardAsync(
           outputPrompt.Title +
             " " +
@@ -163,6 +167,7 @@ export function emptyExample() {
             " " +
             outputPrompt.State
         );
+        */
       } else {
         fetchResponse();
       }
@@ -202,7 +207,12 @@ export function emptyExample() {
     opacity.classList.add("hidden");
     video.style.filter = "brightness(100%)";
     video.play();
-    target.innerHTML = "";
+    //target.innerHTML = "";
+
+    titleArt.innerHTML = "";
+    descriptArt.innerHTML = "";
+    detailArt.innerHTML = "";
+    valueArt.innerHTML = "";
   });
 
   button3.addEventListener("click", () => {
@@ -216,11 +226,32 @@ export function emptyExample() {
 
   share.addEventListener("click", () => {
     share.classList.add("hidden");
+    close.classList.add("hidden");
     // fondNoir.classList.remove("hidden");
     opacity.classList.add("hidden");
     background1.classList.remove("hidden");
     TITRE1.innerHTML = " ";
     TITRE2.innerHTML = "copied to clipboard";
     imageCopy.classList.remove("hidden");
+
+    copyToClipboardAsync(
+      titleArt.innerText +
+        " " +
+        descriptArt.innerText +
+        " " +
+        detailArt.innerText +
+        +" " +
+        "value: " +
+        valueArt.innerText
+    );
   });
+
+  const tagline = `
+  re-evaluate,
+  re-interpret,
+  re-valorize,
+  re-assess,
+  your object.`;
+
+  typeWriter(tagline, 50, TITRE1);
 }
