@@ -207,6 +207,7 @@ export function emptyExample() {
     opacity.classList.add("hidden");
     video.style.filter = "brightness(100%)";
     video.play();
+    share.classList.add("hidden");
     //target.innerHTML = "";
 
     titleArt.innerHTML = "";
